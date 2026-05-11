@@ -1,24 +1,13 @@
 "use client"
 
-import { Copy, Check } from "lucide-react"
-import { useState } from "react"
-
 const tokenData = [
-  { label: "CA", value: "PLACEHOLDER", icon: "📋", copyable: true },
-  { label: "NETWORK", value: "SOLANA", icon: "◎", copyable: false },
-  { label: "SUPPLY", value: "1,000,000,000", icon: "🐱", copyable: false },
-  { label: "TAX", value: "0/0", icon: "🔥", copyable: false },
+  { label: "PLATFORM", value: "PUMP.FUN", icon: "🚀" },
+  { label: "NETWORK", value: "SOLANA", icon: "◎" },
+  { label: "SUPPLY", value: "1,000,000,000", icon: "🐱" },
+  { label: "TAX", value: "0/0", icon: "🔥" },
 ]
 
 export function TokenInfo() {
-  const [copied, setCopied] = useState(false)
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText("PLACEHOLDER")
-    setCopied(true)
-    setTimeout(() => setCopied(false), 2000)
-  }
-
   return (
     <section className="py-6">
       <div className="container mx-auto px-4">
@@ -36,18 +25,6 @@ export function TokenInfo() {
                   </p>
                   <p className="font-bold text-sm truncate">{item.value}</p>
                 </div>
-                {item.copyable && (
-                  <button
-                    onClick={handleCopy}
-                    className="p-1.5 hover:bg-muted rounded transition-colors"
-                  >
-                    {copied ? (
-                      <Check className="w-4 h-4 text-green-500" />
-                    ) : (
-                      <Copy className="w-4 h-4 text-muted-foreground" />
-                    )}
-                  </button>
-                )}
               </div>
             ))}
           </div>
